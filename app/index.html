@@ -13,52 +13,38 @@
 		<!-- build:css(.tmp) styles/main.css -->
 		<link rel="stylesheet" href="styles/main.css">
 		<!-- endbuild -->
+		<link rel="stylesheet" href="scripts/notifications/styles/css/notifications.css">
 	</head>
 	<body ng-app="notificationApp">
 		<!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-		<!-- Add your site or application content here -->
-
-		<section ng-controller="NotificationsController" class="notifications-wrapper">
-
-			<div ng-repeat="notification in notificationsAll track by $index" class="notifications-box ns-effect-slide">
-				<notifications-flash></notifications-flash>
-			</div>
-
+		<section ng-controller="NotificationsController">
+			<div notifications-flash-directive></div>
 		</section>
 
-		<div class="container">
-			<div class="header">
-				<ul class="nav nav-pills pull-right">
-					<li class="active"><a ng-href="#">Home</a></li>
-					<li><a ng-href="#/about">About</a></li>
-					<li><a ng-href="#">Contact</a></li>
-				</ul>
-				<h3 class="text-muted">notification</h3>
+
+
+
+		<div ng-controller="DemoController">
+
+
+			<div class="container">
+				<div class="header">
+					<h3 class="text-muted">Angular system notifications</h3>
+				</div>
+
+				<div class="jumbotron">
+
+					<p><button type="button" class="btn btn-lg btn-success"
+					ng-click="addRandomMessages()">Get notification</button></p>
+					<h3>Check console <br><small>Only unique notifications will show up</small></h3>
+				</div>
+
 			</div>
 
-			<div class="jumbotron">
-				<h1>'Allo, 'Allo!</h1>
-				<p class="lead">
-					<img src="images/yeoman.png" alt="I'm Yeoman"><br>
-					Always a pleasure scaffolding your apps.
-				</p>
-				<p><a class="btn btn-lg btn-success"
-				href="javascript:void(0);"
-				ng-click="addRandomMessages()">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-			</div>
-
-
-
-
-
-			<div class="footer">
-				<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-			</div>
 		</div>
-
 
 
 		<!-- build:js(.) scripts/oldieshim.js -->
@@ -95,18 +81,23 @@
 		<!-- endbuild -->
 		<script src="bower_components/angular-mocks/angular-mocks.js"></script>
 
-				<!-- build:js({.tmp,app}) scripts/scripts.js -->
-				<script src="scripts/app.js"></script>
-				<script src="scripts/controllers/main.js"></script>
-				<script src="scripts/controllers/about.js"></script>
-				<!-- endbuild -->
+		<!-- build:js({.tmp,app}) scripts/scripts.js -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/demo.js"></script>
+		<!-- endbuild -->
 
 
-				<script src="scripts/notifications/notifications-module.js"></script>
-				<script src="scripts/notifications/controllers/notifications-controller.js"></script>
-				<script src="scripts/notifications/directives/notifications-message.js"></script>
-				<script src="scripts/notifications/services/notifications-service.js"></script>
-				<script src="scripts/notifications/services/notifications-resource.js"></script>
 
-</body>
+
+
+		<script src="scripts/notifications/notifications-module.js"></script>
+		<script src="scripts/notifications/controllers/notifications-controller.js"></script>
+		<script src="scripts/notifications/directives/notifications-flash-directive.js"></script>
+		<script src="scripts/notifications/services/notifications-resource.js"></script>
+		<script src="scripts/notifications/services/notifications-service.js"></script>
+
+
+
+
+	</body>
 </html>

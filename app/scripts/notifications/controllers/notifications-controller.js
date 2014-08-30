@@ -1,6 +1,6 @@
 angular.module('notifications.controllers').controller('NotificationsController',
-	['$rootScope', '$timeout', '$exceptionHandler', 'notificationsService',
-	function($rootScope, $timeout, $exceptionHandler, notificationsService){
+	['$scope', '$timeout', '$exceptionHandler', 'notificationsService',
+	function($scope, $timeout, $exceptionHandler, notificationsService){
 		'use strict';
 
 		/**
@@ -8,10 +8,12 @@ angular.module('notifications.controllers').controller('NotificationsController'
 		 *
 		 *	@description TODO:
 		 */
-		$rootScope.getNotifications = function() {
+		$scope.getNotifications = function() {
 			notificationsService.getNotifications().then(
 				function getNotificationsSuccess(data) {
-					notificationsService.notifications.pushToModel(data)
+					if(data && data.notifications) {
+						notificationsService.showNotifications(data.notifications);
+					}
 				}, function getNotificationsError(error) {
 					//Handle error
 					$exceptionHandler(error);
@@ -20,25 +22,18 @@ angular.module('notifications.controllers').controller('NotificationsController'
 		};
 
 
-		$rootScope.notificationsAll = notificationsService.notifications.getModel();
-
-
 		/**
 		 *	@name checkNotifications
 		 *
-		 *	@description Invoke $rootScope.getNotifications() every 10sec.
+		 *	@description Invoke $scope.getNotifications() every 10sec.
 		 */
-
 		(function checkNotifications() {
-			// $rootScope.getNotifications();
-			// notificationsService.notifications.push(mockedMsg);
+			$scope.getNotifications();
 
-			// TODO: remove this mocked method in app.js
-			$rootScope.addRandomMessages();
-
-			// TODO: check which method has better performance: $timeout() vs $interval()
-			$timeout(checkNotifications, notificationsService.requestEvery)
+			// TODO: Talk about $timeout() vs $httpProvider.interceptors
+			$timeout(checkNotifications, notificationsService.settings.requestEvery);
 		}());
 
 
-	}]);
+	}
+]);
