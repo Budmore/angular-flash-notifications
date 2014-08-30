@@ -1,0 +1,39 @@
++ uruchomienie pluginu
++ ostylowanie
+	+ przygotowany szablon wiadomosci
+	+ ostylowac notyfikacje
++ animacja
++ usuniecie zbednego kodu
++ wypluc reszte wiadomosci
++ unit testy
++ refactor
+
+- dodać animację dla wiadomości które przesuwają się "w górę"
+- strona demo
+- przerobienie kodu na .coffe + .scss
+- przetestować pod IE i Safari. Animacje z CSS3 mają wsparcie dla +IE10
+- ładniejsza animacja? http://tympanus.net/Development/NotificationStyles/other-thumbslider.html
+
+
+
+
+### Do przegadania
+1) Aby ograniczyc ilość cyklicznych requestów można połączyć notyfikacje systemowe z już istniejącym requestem np(channels).
+Do $httpProvider można dodać interceptora który będzie sprawdzać czy w response są obecne jakiekolwiek notyfikacje.
+
+2) Jeżeli planowane są notyfikacje o różnych wyglądach, to warto rozważyć dodanie właściwości "style", aby odzielić typ od wyglądu:
+	- style: np 'succes', 'danger', 'warning', 'info', 'default'
+	- type: np 'NEW_FOLLOWER', 'LIVE_STREAM', 'NEW_SUBSCRIPTION'
+
+{
+	id: 100,
+	timestamp: 1409075938023,
+	url: 'channels/arcon',
+	src: null,
+	style: 'warning',
+	title: 'LIVE!',
+	description: 'The "arcon" channel is going LIVE!',
+	type: 'LIVE_STREAM'
+}
+
+
