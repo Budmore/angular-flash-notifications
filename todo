@@ -9,7 +9,7 @@
 + refactor
 
 - dodać animację dla wiadomości które przesuwają się "w górę"
-- strona demo
++ strona demo
 - przerobienie kodu na .coffe + .scss
 - przetestować pod IE i Safari. Animacje z CSS3 mają wsparcie dla +IE10
 - ładniejsza animacja? http://tympanus.net/Development/NotificationStyles/other-thumbslider.html
@@ -21,9 +21,10 @@
 1) Aby ograniczyc ilość cyklicznych requestów można połączyć notyfikacje systemowe z już istniejącym requestem np(channels).
 Do $httpProvider można dodać interceptora który będzie sprawdzać czy w response są obecne jakiekolwiek notyfikacje.
 
-2) Jeżeli planowane są notyfikacje o różnych wyglądach, to warto rozważyć dodanie właściwości "style", aby odzielić typ od wyglądu:
+2) Lekkie zmiany w obiekcie wiadomości (dodałem właściwości src, title, description, style)
+Jeżeli planowane są notyfikacje o różnych wyglądach, to warto rozważyć dodanie właściwości "style", aby odzielić typ od wyglądu:
 	- style: np 'succes', 'danger', 'warning', 'info', 'default'
-	- type: np 'NEW_FOLLOWER', 'LIVE_STREAM', 'NEW_SUBSCRIPTION'
+	- type: np 'NO_IMAGE', 'STYLE_1' ,'NEW_FOLLOWER', 'LIVE_STREAM', 'NEW_SUBSCRIPTION'
 
 {
 	id: 100,
@@ -36,4 +37,5 @@ Do $httpProvider można dodać interceptora który będzie sprawdzać czy w resp
 	type: 'LIVE_STREAM'
 }
 
-
+3) Inny rodzaj animacji na "wyłączenie" notyfikacji (Fade out - rozwiąże bug'a z przeskakującymi wiadomościami)
+http://tympanus.net/Development/NotificationStyles/other-thumbslider.html
