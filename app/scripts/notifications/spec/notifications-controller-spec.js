@@ -12,12 +12,16 @@ describe('Controller: NotificationsController', function () {
 	// Initialize the controller and a mock scope
 	beforeEach(inject(function ($controller, $rootScope, $injector) {
 		scope = $rootScope.$new();
+		var rootScope = {
+			getRandomMessage: jasmine.createSpy()
+		};
 		$q = $injector.get('$q');
 		notificationsService = $injector.get('notificationsService');
 
 		CreateNotificationsController = function() {
 			return $controller('NotificationsController', {
 				$scope: scope,
+				$rootScope: rootScope,
 				notificationsService: notificationsService
 			});
 		};
