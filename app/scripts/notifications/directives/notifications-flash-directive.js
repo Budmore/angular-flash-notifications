@@ -62,16 +62,18 @@ angular.module('notifications.directives').run(['$templateCache', function($temp
 	/* jshint quotmark:false */
 	$templateCache.put('notification-template.html',
 		'<section class="ns-wrapper">' +
-		'	<div class="ns-item" ng-repeat="message in messages" ng-class="{'+"'cursor-pointer'"+': message.url}" ng-click="redirect(message.url)">' +
-		'		<button type="button" class="ns-close" ng-click="deleteMessage(message)">&times;</button>' +
-		'		<div class="ns-img" ng-if="message.src">' +
-		'			<img ng-src="{{message.src}}" alt="avatar">' +
+		'	<div class="ns-item ns-effect-thumbslider" ng-repeat="message in messages" ng-class="{'+"'cursor-pointer'"+': message.url}" ng-click="redirect(message.url)">' +
+		'		<div class="ns-box-inner">'+
+		'			<button type="button" class="ns-close" ng-click="deleteMessage(message)">&times;</button>' +
+		'			<div class="ns-img" ng-if="message.src">' +
+		'				<img ng-src="{{message.src}}" alt="avatar">' +
+		'			</div>' +
+		'			<div class="ns-message">' +
+		'				<div class="ns-title" ng-bind-html="message.title"></div>' +
+		'				<div class="ns-description" ng-bind-html="message.description"></div>' +
+		'			</div>' +
+		'			<div class="clear-both"></div>' +
 		'		</div>' +
-		'		<div class="ns-message">' +
-		'			<div class="ns-title" ng-bind-html="message.title"></div>' +
-		'			<div class="ns-description" ng-bind-html="message.description"></div>' +
-		'		</div>' +
-		'		<div class="clear-both"></div>' +
 		'	</div>' +
 		'</section>'
 	);
