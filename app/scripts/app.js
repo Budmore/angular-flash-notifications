@@ -11,11 +11,9 @@
 angular
 	.module('notificationApp', [
 		'ngAnimate',
-		'ngCookies',
 		'ngResource',
 		'ngRoute',
 		'ngSanitize',
-		'ngTouch',
 		// 'ngMockE2E',
 
 		'notifications',
