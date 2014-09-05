@@ -26,16 +26,6 @@ angular
 		// MockedData
 		var mockedNotifications = [
 			{
-				id: 100,
-				timestamp: 1409075938023,
-				url: 'channels/arcon',
-				src: null,
-				style: 'warning',
-				title: 'LIVE! LIVE! LIVE!',
-				description: 'The "arcon" chanel is now LIVE!',
-				type: 'LIVE_STREAM'
-			},
-			{
 				id: 101,
 				timestamp: 1409075938021,
 				url: null,
@@ -46,33 +36,59 @@ angular
 				type: 'NEW_FOLLOWER'
 			},
 			{
-				id: 102,
+				id: 107,
+				timestamp: 1409075938041,
+				src: 'https://pbs.twimg.com/profile_images/417276485439746049/ZCm6qSai_400x400.jpeg',
+				style: 'info',
+				title: 'Budmore',
+				description: 'Budmore accepted your invitation.',
+				type: 'INVITATION_ACCEPT'
+			},
+			{
+				id: 120,
+				timestamp: 1409075938042,
+				url: null,
+				src: 'images/sw-jango-fett.jpg',
+				style: 'danger',
+				title: 'Heads up!',
+				description: 'Jango fett is coming for you!',
+				type: 'ERROR'
+			},
+			{
+				id: 121,
+				timestamp: 1409075938043,
+				url: null,
+				src: 'images/sw-yoda.jpg',
+				title: 'Yoda writes to you',
+				description: '"Do or do not. There is no try."',
+			},
+			{
+				id: 122,
+				timestamp: 1409075938044,
+				url: null,
+				src: 'images/sw-trooper.jpg',
+				title: 'Clone trooper',
+				description: 'Clone trooper joined the 501st Legion',
+			},
+			{
+				id: 123,
 				timestamp: 1409075938023,
-				url: 'subscriptions',
-				src: 'images/yeoman.png',
+				url: null,
+				src: 'images/sw-anakin.jpg',
 				style: 'success',
 				title: 'Gratulations',
 				description: 'You have new subscription',
 				type: 'NEW_SUBSCRIPTION'
 			},
 			{
-				id: 107,
-				timestamp: 1409075938041,
-				src: 'https://pbs.twimg.com/profile_images/417276485439746049/ZCm6qSai_400x400.jpeg',
-				style: 'info',
-				title: 'Budmore',
-				description: 'Budmore accepted your invitation. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique ad voluptates pariatur neque dolorem quo eius, voluptas nulla maxime voluptatem quibusdam, voluptate incidunt natus culpa rem quidem obcaecati laudantium, voluptatibus.',
-				type: 'INVITATION_ACCEPT'
-			},
-			{
-				id: 666,
-				timestamp: 1409075938041,
-				url: null,
-				src: null,
-				style: 'danger',
-				title: '<i class="glyphicon glyphicon-cog"></i> Some error occurred',
-				description: 'Please refresh player',
-				type: 'ERROR'
+				id: 124,
+				timestamp: 1409075938021,
+				url: 'friends',
+				src: 'images/sw-leia.jpg',
+				style: 'success',
+				title: 'Fuck Yeah!',
+				description: 'Princess Leia is not your sister :)',
+				type: 'NEW_SUBSCRIPTION'
 			}
 		];
 
