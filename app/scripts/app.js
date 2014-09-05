@@ -16,12 +16,12 @@ angular
 		'ngRoute',
 		'ngSanitize',
 		'ngTouch',
-		'ngMockE2E',
+		// 'ngMockE2E',
 
 		'notifications',
 	])
 
-	.run(['$rootScope', '$httpBackend', function($rootScope, $httpBackend) {
+	.run(['$rootScope', function($rootScope) {
 
 		// MockedData
 		var mockedNotifications = [
@@ -128,12 +128,12 @@ angular
 		};
 
 
-		var mockedRespond = {
-			notifications: randomData(mockedNotifications, randomCounter(mockedNotifications))
-		};
+		// var mockedRespond = {
+		// 	notifications: randomData(mockedNotifications, randomCounter(mockedNotifications))
+		// };
 
 		//mocking backend to simulate handling server notifications
-		$httpBackend.when('GET', '/api/mock/notifications').respond(mockedRespond);
+		// $httpBackend.when('GET', '/api/mock/notifications').respond(mockedRespond);
 
 	}]
 );

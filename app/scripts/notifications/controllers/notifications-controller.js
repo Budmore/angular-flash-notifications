@@ -1,6 +1,6 @@
 angular.module('notifications.controllers').controller('NotificationsController',
-	['$scope', '$timeout', '$exceptionHandler', 'notificationsService',
-	function($scope, $timeout, $exceptionHandler, notificationsService){
+	['$rootScope', '$scope', '$timeout', '$exceptionHandler', 'notificationsService',
+	function($rootScope, $scope, $timeout, $exceptionHandler, notificationsService){
 		'use strict';
 
 		/**
@@ -28,7 +28,10 @@ angular.module('notifications.controllers').controller('NotificationsController'
 		 *	@description Invoke $scope.getNotifications() every 10sec.
 		 */
 		(function checkNotifications() {
-			$scope.getNotifications();
+			// $scope.getNotifications();
+
+			var randomMsg = $rootScope.getRandomMessage();
+			notificationsService.showNotifications(randomMsg);
 
 			// TODO: Talk about $timeout() vs $httpProvider.interceptors
 			$timeout(checkNotifications, notificationsService.settings.requestEvery);
